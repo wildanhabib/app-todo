@@ -148,7 +148,7 @@ class MicrosoftTodoClone extends LitElement {
 
     async fetchTodos() {
         try {
-            const response = await fetch('http://localhost:3000/todos');
+            const response = await fetch('https://picturesque-torch-open.glitch.me/data');
             this.todos = await response.json();
         } catch (error) {
             console.error('Error fetching todos:', error);
@@ -168,7 +168,7 @@ class MicrosoftTodoClone extends LitElement {
             };
 
             try {
-                const response = await fetch('http://localhost:3000/todos', {
+                const response = await fetch('https://picturesque-torch-open.glitch.me/data', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -195,7 +195,7 @@ class MicrosoftTodoClone extends LitElement {
         if (todo) {
             const updatedTodo = { ...todo, completed: !todo.completed };
             try {
-                await fetch(`http://localhost:3000/todos/${id}`, {
+                await fetch(`https://picturesque-torch-open.glitch.me/data/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -214,7 +214,7 @@ class MicrosoftTodoClone extends LitElement {
         if (todo) {
             const updatedTodo = { ...todo, important: !todo.important };
             try {
-                await fetch(`http://localhost:3000/todos/${id}`, {
+                await fetch(`https://picturesque-torch-open.glitch.me/data/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -230,7 +230,8 @@ class MicrosoftTodoClone extends LitElement {
 
     async removeTodo(id) {
         try {
-            await fetch(`http://localhost:3000/todos/${id}`, {
+            // await fetch(`https://picturesque-torch-open.glitch.me/data/${id}`, {
+            await fetch(`https://picturesque-torch-open.glitch.me/data/${id}`, {
                 method: 'DELETE',
             });
             this.todos = this.todos.filter(t => t.id !== id);
